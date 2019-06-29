@@ -1,0 +1,88 @@
+<html>
+<head>
+
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<style>
+h1 {
+	margin: 0 0 10px 0;
+	text-align: center;
+}
+</style>
+</head>
+<body class="body-background">
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+			<form class="login100-form validate-form" action="selectteam.html" method="post"
+				onsubmit="return onValidate()">
+				<span class="register-form-title"> REGISTER HERE </span>
+				<div class="wrap-input100 validate-input" id="emailid-field">
+					<input class="input100" type="email" id="emailid"
+						placeholder="Cognizant Email ID" onclick="resetAlert('emailid-field')" required />
+					<span class="focus-input100"></span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" id="uniqueid-field">
+					<input class="input100" type="text" id="uniqueid" placeholder="Unique ID"
+						onclick="resetAlert('uniqueid-field')"  /> 
+						<!-- <span
+						class="focus-input100" onclick="tooltip()"></span>
+						<span class="focus-input100"></span>
+						
+							<span class="symbol-input100">
+								<span  class="tooltip"> 
+									<i class="fa fa-exclamation-circle" title="Tool tip text"> </i>
+									<span class="tooltiptext"id = "tip">Tooltip text</span> 
+								 </span> 
+							
+							</span> -->
+						
+			  
+			</span>
+				</div>
+				
+				<div class="wrap-input100 validate-input" id="userid-field">
+					<input class="input100" type="text" id="userid"
+						placeholder="Employee ID" onclick="resetAlert('userid-field')"
+						required /> <span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" id="pass-field"
+					data-validate="Password must be greater than 6 character">
+					<input class="input100" type="password" id="pass"
+						placeholder="Password" onclick="resetAlert('pass-field')" required />
+					<span class="focus-input100"></span>
+				</div>
+				<div class="wrap-input100 validate-input" id="Phone number-field"
+					data-validate="Phone number must be equal to 10 character">
+					<input class="input100" type="Text" id="Phone number"
+						name="Phone number" placeholder="Conatct Number"
+						onclick="resetAlert('Phone number-field')" required /> <span
+						class="focus-input100"></span>
+				</div>
+				
+				
+				<div class="wrap-input100 validate-input">
+					<select class="input100" name="Team">
+						<option value=""> Team Name </option>
+						<option value="T1"> Purpuile Penguins </option>
+						<option value="T2"> White tigers </option>
+						<option value="T3"> Black Hogs </option>
+						<option value="T4"> Silver sharks </option>
+						<option value="T5"> Others </option>
+					</select> <span class="focus-input100"></span>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<button type="submit" class="login100-form-btn">Register</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>
+</body>
+</html>

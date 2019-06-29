@@ -1,0 +1,160 @@
+<html>
+<head>
+
+    <style>
+        th, td, p, input {
+            font:14px Verdana;
+        }
+        table, th, td
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        th {
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body onload="CreateTableFromJSON()">
+
+    <p id="showData" align="center"></p>
+</body>
+
+<script>
+    function CreateTableFromJSON() {
+
+        var myDevice = [
+            {
+                "Device Name": "iphone6",
+                "Operating System": "iOS",
+                "Status": "Available",
+                "User": ""
+            },
+            {
+                "Device Name": "iphone6",
+                "Operating System": "iOS",
+                "Status": "Requested",
+                "User": "Rohit"
+            },
+            {
+                "Device Name": "iphone6",
+                "Operating System": "iOS",
+                "Status": "Booked",
+                "User": "Rohit"
+            },
+            {
+                "Device Name": "iphone6",
+                "Operating System": "iOS",
+                "Status": "Releasing",
+                "User": "Rohit"
+            },
+            {
+                "Device Name": "iphone6",
+                "Operating System": "iOS",
+                "Status": "Releasing",
+                "User": "Rohit"
+            }
+
+        ]
+
+        // EXTRACT VALUE FOR HTML HEADER.
+        // ('Book ID', 'Book Name', 'Category' and 'Price')
+        var col = [];
+        for (var i = 0; i < myDevice.length; i++) {
+            for (var key in myDevice[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        //ADDING EXTRA HEADER FOR TABLE
+        col.push("Reservation");
+        col.push("Approve");
+        col.push("Reject");
+
+        // CREATE DYNAMIC TABLE.
+        var table = document.createElement("table");
+
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        var tr = table.insertRow(-1);                   // TABLE ROW.
+
+        for (var i = 0; i < 7; i++) {
+            var th = document.createElement("th");      // TABLE HEADER.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (var i = 0; i < myDevice.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < 4; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = myDevice[i][col[j]];
+            }
+            if (myDevice[i][col[2]] === "Available")
+            {
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Reserve' id='Reserve' name='button'>Reserve</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Approve' id='Approve' name='button'>Approve</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Reject'  id='Reject' name='button'>Reject</button>";
+            }
+            else if (myDevice[i][col[2]] === "Booked") {
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Release' id='Release' name='button'>Release</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Approve' id='Approve' name='button'>Approve</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Reject' id='Reject' name='button'>Reject</button>";
+            }
+            else if (myDevice[i][col[2]] === "Releasing") {
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Releasing' id='Releasing' name='button'>Reserve</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Approve' id='Approve' name='button'>Approve</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Reject' id='Reject' name='button'>Reject</button>";
+            }
+            else if (myDevice[i][col[2]] === "Requested") {
+              var tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Requested' id='Requested' name='button'>Release</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Approve' id='Approve' name='button'>Approve</button>";
+              tabCell = tr.insertCell(-1);
+              tabCell.innerHTML = "<button type='button' class='Reject' id='Reject' name='button'>Reject</button>";
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        var divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+
+        var buttons = document.getElementsByClassName('Releasing');
+
+        for(var i = 0; i < buttons.length; i++)
+        {
+          var button = buttons[i];
+          button.disabled = true;
+        }
+
+        var buttons = document.getElementsByClassName('Requested');
+
+        for(var i = 0; i < buttons.length; i++)
+        {
+          var button = buttons[i];
+          button.disabled = true;
+        }
+        // document.getElementById("Releasing").disabled = true;
+        // document.getElementById("Requested").disabled = true;
+    }
+</script>
+</html>
+

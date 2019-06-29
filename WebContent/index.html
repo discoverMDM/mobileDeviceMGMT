@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login | Device Manager</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+</head>
+<body class="body-background">
+	
+	<div class="limiter">
+		<div class="container-login100">
+		
+			<div class="wrap-login100">
+			
+			
+
+				<form class="login100-form validate-form" action="HomePage.html" method ="POST" onsubmit="return validateLogin()">
+				<span class="login100-form-title">
+					<h3> Mobile Device Management </h3>
+			</span>
+					<!-- <span class="login100-form-title">
+						<p>
+							Sign in using your racfid and registered password
+						<br>
+						
+							If you are not able to login, Drop a mail to <i> Naveethaa.Palanisamy@cognizant.com</i>
+						</p>
+					</span> -->
+
+					<div class="wrap-input100 validate-input" id="email-field" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" id="email" name="email" placeholder="Email" onclick="resetAlert('email-field')">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" id="pass-field" data-validate = "Password must be greater than 6 character">
+						<input class="input100" type="password" id="pass" name="pass" placeholder="Password" onclick="resetAlert('pass-field')">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button type="Submit" class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<!-- <span class="txt1"> 
+							Forgot-->
+						</span>
+						<a class="txt2" href="forgotPassword.html">
+						Forgot	Username / Password?
+						</a>
+					</div>
+					
+					
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Not Registered User
+						</span>
+						<a class="txt2" href="register form.html">
+							Sign Up
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+<script src="js/main.js"></script>
+	
+	
+
+</body>
+</html>
